@@ -15,6 +15,8 @@ from playsound import playsound
 # face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+# haarcascade_frontaldog.xml is not detecting dog faces, it detects human faces functionality
+# not working as intended.
 
 # capture frames from a camera
 cap = cv2.VideoCapture(0)
@@ -36,9 +38,9 @@ while 1:
     # Detects faces of different sizes in the input image
     faces = face_cascade.detectMultiScale(gray, 1.3,10, 5)
     if len(faces) == 1:
-        cv2.putText(img,'Get out stinky!(useSpray)',(0,20),font, .8,(0, 255, 255),2,cv2.LINE_4)
+        cv2.putText(img,'Target Acquired',(0,20),font, .8,(0, 255, 255),2,cv2.LINE_4)
         #playSound
-        playsound('nostinky.mp3')
+        playsound('unauth.mp3')
         # activate bluetooth useSpray()
 
     for (x,y,w,h) in faces:
